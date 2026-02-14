@@ -3,6 +3,7 @@
 class DocsApp {
   constructor() {
     this.currentLang = localStorage.getItem('dexless-docs-lang') || 'en';
+    this.currentTheme = localStorage.getItem('dexless-docs-theme') || 'light';
     this.currentPage = 'introduction';
     this.searchIndex = {};
     this.translations = {
@@ -42,6 +43,7 @@ class DocsApp {
 
   init() {
     this.setupEventListeners();
+    this.applyTheme(this.currentTheme);
     this.updateLanguage(this.currentLang, false);
     this.loadPageFromHash();
     this.renderPage(this.currentPage);
@@ -63,6 +65,17 @@ class DocsApp {
     return this.translations[this.currentLang]?.[key] || this.translations['en'][key] || key;
   }
 
+  toggleTheme() {
+    this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+    this.applyTheme(this.currentTheme);
+    localStorage.setItem('dexless-docs-theme', this.currentTheme);
+  }
+
+  applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    this.currentTheme = theme;
+  }
+
   setupEventListeners() {
     // 語言切換按鈕
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -71,6 +84,14 @@ class DocsApp {
         this.updateLanguage(lang);
       });
     });
+
+    // 深色模式切換按鈕
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        this.toggleTheme();
+      });
+    }
 
     // 搜索功能
     const searchInput = document.getElementById('searchInput');
