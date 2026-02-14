@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEXLESS API Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+    <!-- 頂部導航欄 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="DEXLESS logo Black_White bg.png" alt="DEXLESS" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-fallback" style="display: none;">
+                    <span class="logo-text">DEXLESS</span>
+                </div>
+                <span class="logo-badge">API Docs</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search API..." class="search-input">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="header-links">
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">English</button>
+                    <button class="lang-btn" data-lang="zh-CN">简体中文</button>
+                </div>
+                <a href="https://api.orderly.org" target="_blank" class="header-link">Mainnet</a>
+                <a href="https://testnet-api.orderly.org" target="_blank" class="header-link">Testnet</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- 側邊欄導航 -->
+        <aside class="sidebar">
+            <nav class="nav" id="sidebar-nav">
+                <!-- 導航內容將由 JavaScript 動態生成 -->
+            </nav>
+        </aside>
+
+        <!-- 主內容區 -->
+        <main class="content">
+            <div id="content-container">
+                <div class="loading">Loading...</div>
+            </div>
+        </main>
+
+        <!-- 右側目錄 -->
+        <aside class="toc">
+            <div class="toc-content">
+                <h4 class="toc-title" id="toc-title">On This Page</h4>
+                <nav id="toc-nav" class="toc-nav">
+                </nav>
+            </div>
+        </aside>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/11.1.1/marked.min.js"></script>
+    <script src="docs-data-en.js"></script>
+    <script src="docs-data-zh-CN.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
