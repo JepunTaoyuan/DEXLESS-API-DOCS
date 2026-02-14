@@ -11,6 +11,17 @@
     <!-- 頂部導航欄 -->
     <header class="header">
         <div class="header-content">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
             <div class="logo">
                 <img src="DEXLESS logo Black_White bg.png" alt="DEXLESS" class="logo-img logo-light" onerror="this.style.display='none';">
                 <img src="DEXLESS logo white.png" alt="DEXLESS" class="logo-img logo-dark" onerror="this.style.display='none';">
@@ -43,8 +54,11 @@
     </header>
 
     <div class="main-container">
+        <!-- 移動端遮罩層 -->
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        
         <!-- 側邊欄導航 -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <nav class="nav" id="sidebar-nav">
                 <!-- 導航內容將由 JavaScript 動態生成 -->
             </nav>

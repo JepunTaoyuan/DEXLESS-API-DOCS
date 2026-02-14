@@ -1,200 +1,141 @@
-# DEXLESS API Documentation - Production Build
+# DEXLESS API Documentation
 
-> This directory contains the production-ready version of DEXLESS API documentation for deployment.
+Official API documentation for DEXLESS - A decentralized exchange powered by Orderly Network.
 
-## 📦 Production Files
+## Features
 
-This folder includes all necessary files for deploying to production environments (Vercel, Netlify, GitHub Pages, etc.):
+- ✨ Modern and professional UI/UX design
+- 🌐 Multi-language support (English, 简体中文)
+- 🌓 Dark mode support with smooth transitions
+- 🔍 Real-time search functionality
+- 📱 Fully responsive design with mobile-optimized navigation
+- 📱 Hamburger menu for mobile devices (tablets & phones)
+- 🎨 Syntax highlighting for code examples
+- 📑 Auto-generated table of contents
+- ⌨️ Keyboard shortcuts support
+- 🚀 Static site - no server required
 
-### Core Files (Required)
+## Quick Start
+
+### Method 1: Direct Open (Simplest)
+
+Simply double-click `index.html` to view in your browser.
+
+### Method 2: Local Server (Recommended)
+
+1. Double-click `start-server.bat` (Windows)
+2. Or run: `python -m http.server 8000`
+3. Open browser to `http://localhost:8000`
+
+## Language Support
+
+The documentation is available in two languages:
+- **English** - Default language
+- **简体中文** - Simplified Chinese
+
+Switch languages using the language switcher in the top navigation bar.
+
+## File Structure
+
 ```
-├── index.html                          # Main entry point
-├── styles.css                          # Compiled styles
-├── app.js                              # Application logic
-├── docs-data-en.js                     # English documentation
-├── docs-data-zh-CN.js                  # Simplified Chinese documentation
-├── DEXLESS logo Black_White bg.png     # Logo for light mode
-├── DEXLESS logo white.png              # Logo for dark mode
-└── vercel.json                         # Deployment configuration
+.
+├── index.html                # Main HTML file
+├── styles.css               # CSS styles
+├── app.js                   # Application logic
+├── docs-data-en.js          # English documentation data
+├── docs-data-zh-CN.js       # Simplified Chinese documentation data
+├── orderly version/         # Original documentation from Orderly
+│   ├── REST API/           # REST API endpoints
+│   └── Websocket API/      # WebSocket API topics
+├── README.md               # This file
+├── start-server.bat        # Quick start script (Windows)
+└── 使用說明.txt            # Chinese instructions
 ```
 
-## 🚀 Quick Deploy
+## API Endpoints
 
-### Method 1: Vercel (Recommended)
+### Mainnet
+- REST API: `https://api.orderly.org/`
+- WebSocket: `wss://ws-evm.orderly.org/ws/stream/{account_id}`
 
-1. Visit https://vercel.com
-2. Sign in with GitHub/GitLab/Email
-3. Drag and drop this `prod` folder to Vercel
-4. Wait 2 minutes for deployment
-5. Get your live URL!
+### Testnet
+- REST API: `https://testnet-api.orderly.org`
+- WebSocket: `wss://testnet-ws-evm.orderly.org/ws/stream/{account_id}`
 
-### Method 2: GitHub Pages
+## Documentation Coverage
 
-1. Create a new repository on GitHub
-2. Upload all files from this folder
-3. Go to Settings → Pages
-4. Select branch and folder
-5. Save and wait for deployment
-
-### Method 3: Netlify
-
-1. Visit https://www.netlify.com
-2. Drag and drop this folder
-3. Get instant deployment
-4. Configure custom domain if needed
-
-## 🌐 Features
-
-- ✅ **Dual Language**: English & 简体中文
-- ✅ **Dark Mode**: Full dark theme support with auto logo switching
-- ✅ **Responsive**: Mobile, tablet, and desktop optimized
-- ✅ **Fast**: Static site with CDN-ready architecture
-- ✅ **SEO Ready**: Proper meta tags and semantic HTML
-
-## 📋 API Documentation Coverage
-
-### REST API (17 Endpoints)
-- Authentication & Error Codes
+### REST API (17 endpoints)
+- Introduction & Authentication
 - Order Management (Create, Cancel, Edit, Batch)
-- Algo Orders (Stop Loss, Take Profit)
+- Algo Orders (Stop Loss, Take Profit, etc.)
 - Position & Leverage Management
 - Market Info & Funding Rates
 
-### WebSocket API (14 Topics)
+### WebSocket API (14 topics)
 - Connection & Authentication
 - Public Market Data (Orderbook, Trades, BBO)
-- Private User Data (Account, Balance, Position, Execution)
+- Private User Data (Account, Balance, Position, Execution Report)
 
-## 🔧 Environment Configuration
+## Keyboard Shortcuts
 
-### API Endpoints
-The documentation references:
+- `Ctrl/Cmd + K` - Focus search box
+- `Enter` (in search box) - Jump to first result
+- `Esc` - Clear search and unfocus
 
-**Mainnet:**
-- REST: `https://api.orderly.org/`
-- WebSocket: `wss://ws-evm.orderly.org/ws/stream/{account_id}`
+## Technology Stack
 
-**Testnet:**
-- REST: `https://testnet-api.orderly.org`
-- WebSocket: `wss://testnet-ws-evm.orderly.org/ws/stream/{account_id}`
+- HTML5
+- CSS3 (Custom styles, no framework)
+- Vanilla JavaScript (ES6+)
+- [Marked.js](https://marked.js.org/) - Markdown parser
+- [Highlight.js](https://highlightjs.org/) - Code syntax highlighting
 
-No configuration needed - these are hardcoded in documentation content.
+## Browser Support
 
-## ⚡ Performance
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
 
-- **Load Time**: < 1s on fast connections
-- **Bundle Size**: ~500KB total
-- **First Contentful Paint**: < 0.5s
-- **Time to Interactive**: < 1s
+## Deployment
 
-Optimizations included:
-- Minified assets
-- Efficient code splitting
-- Optimized images
-- Browser caching headers
+To deploy online, upload these files:
+1. index.html
+2. styles.css
+3. app.js
+4. docs-data-en.js
+5. docs-data-zh-CN.js
+6. DEXLESS logo Black_White bg.png (logo for light mode)
+7. DEXLESS logo white.png (logo for dark mode)
 
-## 🔒 Security
+Recommended free hosting platforms:
+- **GitHub Pages**
+- **Netlify**
+- **Vercel**
 
-Built-in security headers via `vercel.json`:
-- X-Content-Type-Options: nosniff
-- X-Frame-Options: DENY
-- X-XSS-Protection: 1; mode=block
+## Customization
 
-## 📱 Browser Support
+### Changing Colors
 
-- ✅ Chrome/Edge (latest 2 versions)
-- ✅ Firefox (latest 2 versions)
-- ✅ Safari (latest 2 versions)
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+Edit CSS variables in `styles.css`:
 
-## 🎨 Customization
-
-### Update Documentation Content
-Edit `docs-data-en.js` or `docs-data-zh-CN.js` to modify API documentation.
-
-### Change Branding
-Replace logo files:
-- `DEXLESS logo Black_White bg.png` for light mode
-- `DEXLESS logo white.png` for dark mode
-
-### Modify Styles
-Edit `styles.css` to customize colors, fonts, and layouts.
-
-## 🔄 Update Deployment
-
-### For Vercel/Netlify (Git-based)
-```bash
-git add .
-git commit -m "Update documentation"
-git push origin main
-```
-Auto-deploys on push!
-
-### For Manual Upload
-1. Make changes to source files
-2. Test locally
-3. Replace files on hosting platform
-4. Clear CDN cache if needed
-
-## 📊 Analytics (Optional)
-
-To add Google Analytics, insert before `</head>` in `index.html`:
-
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
-</script>
+```css
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #10b981;
+    /* ... */
+}
 ```
 
-## 🐛 Troubleshooting
+### Adding New Documentation
 
-### Issue: 404 Errors
-- Check all file paths are relative
-- Verify file names match exactly (case-sensitive)
-- Ensure all required files are uploaded
+1. Add new entry to appropriate `docs-data-*.js` file
+2. Update navigation in `app.js` (generateNavigation method)
+3. Test in both languages (English and 简体中文)
 
-### Issue: Logo Not Showing
-- Verify both logo files are uploaded
-- Check file names include spaces correctly
-- Test in incognito mode (clear cache)
-
-### Issue: Dark Mode Not Working
-- Clear browser cache and localStorage
-- Check JavaScript is enabled
-- Verify `app.js` loaded correctly
-
-### Issue: Language Switch Not Working
-- Ensure both `docs-data-*.js` files uploaded
-- Check browser console for errors
-- Verify localStorage is enabled
-
-## 📞 Support
-
-For technical issues or questions:
-- Check deployment logs on your hosting platform
-- Review browser console for JavaScript errors
-- Contact DEXLESS technical team
-
-## 📄 License
+## License
 
 © 2024 DEXLESS. All rights reserved.
 
-## 🔗 Links
+## Support
 
-- **API Mainnet**: https://api.orderly.org
-- **API Testnet**: https://testnet-api.orderly.org
-- **Vercel Documentation**: https://vercel.com/docs
-- **GitHub Pages Guide**: https://pages.github.com
-
----
-
-**Version**: 1.0.0  
-**Last Updated**: 2024  
-**Build Status**: Production Ready ✅
-
-**Note**: This is a production build. For development version, see parent directory.
+For questions or suggestions, please contact the DEXLESS technical team.

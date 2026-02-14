@@ -76,6 +76,38 @@ class DocsApp {
     this.currentTheme = theme;
   }
 
+  toggleMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    
+    if (mobileMenuBtn && sidebar && mobileOverlay) {
+      const isOpen = sidebar.classList.contains('open');
+      
+      if (isOpen) {
+        this.closeMobileMenu();
+      } else {
+        sidebar.classList.add('open');
+        mobileOverlay.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+  }
+
+  closeMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    
+    if (mobileMenuBtn && sidebar && mobileOverlay) {
+      sidebar.classList.remove('open');
+      mobileOverlay.classList.remove('active');
+      mobileMenuBtn.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
   setupEventListeners() {
     // 語言切換按鈕
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -90,6 +122,28 @@ class DocsApp {
     if (themeToggle) {
       themeToggle.addEventListener('click', () => {
         this.toggleTheme();
+      });
+    }
+
+    // 移動端選單按鈕
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    
+    if (mobileMenuBtn && sidebar && mobileOverlay) {
+      mobileMenuBtn.addEventListener('click', () => {
+        this.toggleMobileMenu();
+      });
+
+      mobileOverlay.addEventListener('click', () => {
+        this.closeMobileMenu();
+      });
+
+      // 點擊側邊欄導航項目時關閉選單
+      sidebar.addEventListener('click', (e) => {
+        if (e.target.classList.contains('nav-link')) {
+          this.closeMobileMenu();
+        }
       });
     }
 
