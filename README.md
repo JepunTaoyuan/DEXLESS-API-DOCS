@@ -42,11 +42,7 @@ Switch languages using the language switcher in the top navigation bar.
 ├── app.js                   # Application logic
 ├── docs-data-en.js          # English documentation data
 ├── docs-data-zh-CN.js       # Simplified Chinese documentation data
-├── orderly version/         # Original documentation from Orderly
-│   ├── REST API/           # REST API endpoints
-│   └── Websocket API/      # WebSocket API topics
 ├── README.md               # This file
-├── start-server.bat        # Quick start script (Windows)
 └── 使用說明.txt            # Chinese instructions
 ```
 
