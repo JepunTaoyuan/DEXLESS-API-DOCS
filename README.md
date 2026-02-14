@@ -5,7 +5,7 @@ Official API documentation for DEXLESS - A decentralized exchange powered by Ord
 ## Features
 
 - ✨ Modern and professional UI/UX design
-- 🌐 Multi-language support (English, 简体中文, 繁體中文)
+- 🌐 Multi-language support (English, 简体中文)
 - 🔍 Real-time search functionality
 - 📱 Responsive design for all devices
 - 🎨 Syntax highlighting for code examples
