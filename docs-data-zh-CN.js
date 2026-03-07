@@ -506,7 +506,7 @@ Content-Type, orderly-account-id, orderly-key, orderly-signature, orderly-timest
 | algo_type | string | 是 | \`STOP\`/\`TP_SL\`/\`POSITIONAL_TP_SL\`/\`BRACKET\`/\`BRACKET + TP_SL\`/\`TRAILING_STOP\` |
 | client_order_id | string | 否 | 长度 36，接受连字符但不能作为第一个字符，默认: null |
 | type | string | 条件 | \`LIMIT\` / \`MARKET\`，如果 \`algo_type\` = \`STOP\` 则必填 |
-| price | number | 否 | 对于 \`TP_SL\` 和 \`POSTIONAL_TP_SL\` 可选 |
+| price | number | 否 | 对于 \`TP_SL\` 和 \`POSITIONAL_TP_SL\` 可选 |
 | quantity | number | 条件 | 对于 \`MARKET\`/\`ASK\`/\`BID\` 订单，如果给定 order_amount 则不需要。如果类型是 \`POSITIONAL_TP_SL\` 则不需要 |
 | trigger_price_type | string | 否 | 目前只有 \`MARK_PRICE\` 可用 |
 | trigger_price | number | 否 | 触发价格 |

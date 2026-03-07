@@ -506,7 +506,7 @@ To place \`Trailing Stop\` order, please use \`TRAILING_STOP\` as algoType and \
 | algo_type | string | Yes | \`STOP\`/\`TP_SL\`/\`POSITIONAL_TP_SL\`/\`BRACKET\`/\`BRACKET + TP_SL\`/\`TRAILING_STOP\` |
 | client_order_id | string | No | 36 length, accepts hyphen but cannot be the first character, default: null |
 | type | string | Conditional | \`LIMIT\` / \`MARKET\`, required if \`algo_type\` = \`STOP\` |
-| price | number | No | Optional for \`TP_SL\` and \`POSTIONAL_TP_SL\` |
+| price | number | No | Optional for \`TP_SL\` and \`POSITIONAL_TP_SL\` |
 | quantity | number | Conditional | For \`MARKET\`/\`ASK\`/\`BID\` order, if order_amount is given, it is not required. Not required if type is \`POSITIONAL_TP_SL\` |
 | trigger_price_type | string | No | Only \`MARK_PRICE\` is available for now |
 | trigger_price | number | No | Trigger price |
