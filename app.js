@@ -285,6 +285,9 @@ class DocsApp {
               <a href="#rest-get-position-history" class="nav-link">${docsData['rest-get-position-history']?.title || 'Get Position History'}</a>
             </li>
             <li class="nav-item" data-section="rest">
+              <a href="#rest-get-current-holding" class="nav-link">${docsData['rest-get-current-holding']?.title || 'Get Current Holding'}</a>
+            </li>
+            <li class="nav-item" data-section="rest">
               <a href="#rest-get-leverage-setting" class="nav-link">${docsData['rest-get-leverage-setting']?.title || 'Get Leverage Setting'}</a>
             </li>
             <li class="nav-item" data-section="rest">
