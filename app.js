@@ -45,6 +45,7 @@ class DocsApp {
     this.setupEventListeners();
     this.applyTheme(this.currentTheme);
     this.updateLanguage(this.currentLang, false);
+    this.searchIndex = this.buildSearchIndex();
     this.loadPageFromHash();
     this.renderPage(this.currentPage);
     this.generateNavigation();
