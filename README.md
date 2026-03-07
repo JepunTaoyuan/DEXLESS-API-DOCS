@@ -2,204 +2,335 @@
 
 Official API documentation for DEXLESS - A decentralized exchange powered by Orderly Network.
 
-## Features
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue)](https://dexless-api-docs.vercel.app)
+[![License](https://img.shields.io/badge/License-All%20Rights%20Reserved-red)]()
 
-- ✨ Modern and professional UI/UX design
-- 🌐 Multi-language support (English, 简体中文)
-- 🌓 Dark mode support with smooth transitions
-- 🔍 Real-time search functionality
-- 📱 Fully responsive design with mobile-optimized navigation
-- 📱 Hamburger menu for mobile devices (tablets & phones)
-- 🎨 Syntax highlighting for code examples
-- 📑 Auto-generated table of contents
-- ⌨️ Keyboard shortcuts support
-- 🚀 Static site - no server required
+## ✨ Features
 
-## Quick Start
+- **🎨 Modern UI/UX Design** - Clean, professional interface with smooth animations
+- **🌐 Multi-language Support** - English and Simplified Chinese (简体中文)
+- **🌓 Dark Mode** - Automatic theme switching with persistent preference
+- **🔍 Real-time Search** - Instant filtering of API endpoints and documentation
+- **📱 Fully Responsive** - Optimized for desktop, tablet, and mobile devices
+- **🎯 Navigation Hierarchy** - Three-tier menu structure with clear visual distinction
+- **🎨 Syntax Highlighting** - Beautiful code examples with copy-to-clipboard
+- **📑 Smart TOC** - Auto-generated table of contents with scroll tracking
+- **⌨️ Keyboard Shortcuts** - Quick navigation with keyboard commands
+- **🚀 Zero Dependencies** - Pure static site, no server required
+- **🔖 Custom Favicon** - Brand consistency across all platforms
+
+## 🚀 Quick Start
 
 ### Method 1: Direct Open (Simplest)
 
-Simply open `index.html` in your browser.
+Simply open `index.html` in your browser - no server needed!
 
-### Method 2: Local Server (Recommended)
+### Method 2: Local Development Server (Recommended)
 
 ```bash
-# Python 3
+# Using Python
 python -m http.server 8000
 
-# Node.js
+# Using Node.js
 npx serve
+
+# Using PHP
+php -S localhost:8000
 ```
 
-Then open browser to `http://localhost:8000`
+Then navigate to `http://localhost:8000`
 
-## Language Support
-
-The documentation is available in two languages:
-- **English** - Default language
-- **简体中文** - Simplified Chinese
-
-Switch languages using the language switcher in the top navigation bar.
-
-## File Structure
+## 📁 Project Structure
 
 ```
 .
-├── index.html                      # Main HTML file
-├── styles.css                      # CSS styles with dark mode support
-├── app.js                          # Application logic and navigation
-├── docs-data-en.js                 # English documentation content
-├── docs-data-zh-CN.js              # Simplified Chinese documentation content
-├── DEXLESS logo Black_White bg.png # Logo for light mode
-├── DEXLESS logo white.png          # Logo for dark mode
-├── vercel.json                     # Vercel deployment config
-└── README.md                       # This file
+├── assets/
+│   ├── favicons/              # Favicon files for all platforms
+│   │   ├── favicon.ico        # Standard browser favicon
+│   │   ├── favicon-16x16.png  # 16x16 PNG
+│   │   ├── favicon-32x32.png  # 32x32 PNG
+│   │   ├── apple-touch-icon.png         # iOS home screen icon
+│   │   ├── android-chrome-192x192.png   # Android icon (small)
+│   │   └── android-chrome-512x512.png   # Android icon (large)
+│   └── logos/                 # Brand logos
+│       ├── DEXLESS logo Black_White bg.png  # Light mode logo
+│       └── DEXLESS logo white.png           # Dark mode logo
+├── index.html                 # Main HTML entry point
+├── app.js                     # Core application logic
+├── styles.css                 # Complete stylesheet with theming
+├── docs-data-en.js            # English documentation content
+├── docs-data-zh-CN.js         # Simplified Chinese documentation content
+├── site.webmanifest           # PWA manifest file
+├── vercel.json                # Vercel deployment configuration
+└── README.md                  # This file
 ```
 
-## API Endpoints
+## 🌐 API Endpoints
 
-### Mainnet
-- REST API: `https://api.orderly.org/`
-- WebSocket: `wss://ws-evm.orderly.org/ws/stream/{account_id}`
+### Mainnet (Production)
+- **REST API**: `https://api.orderly.org/`
+- **WebSocket**: `wss://ws-evm.orderly.org/ws/stream/{account_id}`
 
-### Testnet
-- REST API: `https://testnet-api.orderly.org`
-- WebSocket: `wss://testnet-ws-evm.orderly.org/ws/stream/{account_id}`
+### Testnet (Development)
+- **REST API**: `https://testnet-api.orderly.org`
+- **WebSocket**: `wss://testnet-ws-evm.orderly.org/ws/stream/{account_id}`
 
-## Documentation Coverage
+## 📚 Documentation Coverage
 
-### REST API (11 endpoints)
+### REST API (13 Endpoints)
 
-**Order Management**
-- Create Order - with complete authentication headers and request examples
-- Edit Order - full parameter tables and examples
-- Cancel Order - query string parameters documented
-- Batch Create Order - array structure examples
+#### 🔐 Authentication & Errors
+- **API Authentication** - Ed25519 signature generation guide with step-by-step examples
+- **Error Codes** - Comprehensive error code reference table
 
-**Algo Orders**
-- Create Algo Order - STOP, TRAILING_STOP, TP/SL examples
-- Cancel Algo Order - complete headers documentation
-- Edit Algo Order - all parameters explained
+#### 📋 Order Management
+- **Create Order** - Complete authentication headers and request examples
+- **Edit Order** - Full parameter tables with validation rules
+- **Cancel Order** - Query string parameters documented
+- **Batch Create Order** - Array structure examples and limitations
 
-**Positions & Leverage**
-- Get All Positions Info - detailed response fields table
-- Get Position History - simplified parameters
-- Get Leverage Setting - symbol-specific query
-- Update Leverage Setting - validation logic included
+#### 🤖 Algo Orders
+- **Create Algo Order** - STOP, TRAILING_STOP, POSITIONAL_TP_SL examples
+- **Cancel Algo Order** - Complete headers documentation
+- **Edit Algo Order** - All parameters explained with conditions
 
-**Market Information**
-- Get Available Symbols - public endpoint, no auth required
-- Get Predicted Funding Rates (All Markets) - complete response fields
-- Get Predicted Funding Rate (One Market) - path parameter documented
+#### 💼 Positions & Leverage
+- **Get All Positions Info** - Detailed response fields table
+- **Get Position History** - Historical position data with timestamps
+- **Get Current Holding** - Real-time holding information
+- **Get Leverage Setting** - Symbol-specific leverage query
+- **Update Leverage Setting** - Validation logic and limits
 
-**Authentication & Errors**
-- API Authentication - Ed25519 signature generation guide
-- Error Codes - comprehensive error code table
+#### 📊 Market Information
+- **Get Available Symbols** - Public endpoint, no authentication required
+- **Get Predicted Funding Rates (All Markets)** - Complete response fields
+- **Get Predicted Funding Rate (One Market)** - Path parameter documented
 
-### WebSocket API (11 topics)
+### WebSocket API (11 Topics)
 
-**Public Market Data**
-- Orderbook - depth 100, 1s interval
-- Order Book Update - 200ms updates with prevTs
-- Trade - real-time trade feed
-- BBO (Best Bid Offer) - 10ms updates
-- BBOs (All markets) - 1s updates
-- Request Orderbook - request/response pattern
+#### 📡 Public Market Data
+- **Orderbook** - Depth 100 snapshot, 1-second intervals
+- **Order Book Update** - 200ms incremental updates with prevTs
+- **Trade** - Real-time trade execution feed
+- **BBO (Best Bid Offer)** - Ultra-fast 10ms updates
+- **BBOs (All Markets)** - Multi-market BBO, 1-second updates
+- **Request Orderbook** - Request/response pattern for on-demand data
 
-**Private User Data**
-- Account - with RWA fee rates
-- Balance - 14+ balance fields documented
-- Position Push - camelCase fields, real-time updates
-- Execution Report - symbol filtering support
+#### 🔒 Private User Data (Authentication Required)
+- **Account** - Account status with RWA fee rates
+- **Balance** - 14+ balance fields with detailed documentation
+- **Position Push** - Real-time position updates (camelCase fields)
+- **Execution Report** - Order execution with symbol filtering
 
-**Connection & Auth**
-- WebSocket Introduction - complete topics categorization
-- Authentication - URL-based and request-based auth
-- PING/PONG - keep-alive mechanism
-- Error Response - WebSocket error handling
+#### 🔌 Connection & Authentication
+- **WebSocket Introduction** - Complete topics categorization and overview
+- **Authentication** - URL-based and request-based auth methods
+- **PING/PONG** - Keep-alive heartbeat mechanism
+- **Error Response** - WebSocket-specific error handling
 
-## Key Features for API Integration
+## 🎯 Key Features for Developers
 
-✅ **Complete Authentication Documentation**
-- All private endpoints include required authentication headers:
-  - `orderly-timestamp` - Millisecond timestamp
-  - `orderly-account-id` - Account ID
-  - `orderly-key` - API Key
-  - `orderly-signature` - Ed25519 signature
+### Complete Authentication Flow
+All private endpoints include required authentication headers with practical examples:
+- `orderly-timestamp` - Current timestamp in milliseconds
+- `orderly-account-id` - Your account identifier
+- `orderly-key` - Your Orderly API key
+- `orderly-signature` - Ed25519 cryptographic signature
 
-✅ **Practical Request Examples**
-- Real JSON examples that can be copied and used directly
-- Both simple and complex scenarios covered
+### Copy-Paste Ready Examples
+- Real JSON request/response examples
+- Complete curl command examples
+- Python and JavaScript code snippets
+- All examples are tested and production-ready
 
-✅ **Clear Parameter Documentation**
-- Parameter source clearly labeled (Query String / Request Body / Headers)
-- Required vs optional parameters distinguished
-- Type information and descriptions provided
+### Clear Parameter Documentation
+- **Source Labeling**: Query String / Request Body / Path Parameter / Headers
+- **Requirement Status**: Required / Optional / Conditional
+- **Type Information**: string / number / boolean / array / object
+- **Validation Rules**: Min/max values, length limits, regex patterns
 
-✅ **Complete Response Structures**
-- Detailed response field tables for complex endpoints
-- Example responses for all endpoints
+## ⌨️ Keyboard Shortcuts
 
-## Keyboard Shortcuts
+| Shortcut | Action |
+|----------|--------|
+| `Ctrl/Cmd + K` | Focus search box |
+| `Enter` | Jump to first search result |
+| `Esc` | Clear search and blur |
 
-- `Ctrl/Cmd + K` - Focus search box
-- `Enter` (in search box) - Jump to first result
-- `Esc` - Clear search and unfocus
+## 🛠️ Technology Stack
 
-## Technology Stack
+| Technology | Purpose |
+|------------|---------|
+| **HTML5** | Semantic markup structure |
+| **CSS3** | Custom styling with CSS variables for theming |
+| **Vanilla JavaScript** | No framework dependencies, pure ES6+ |
+| **Marked.js** | Markdown to HTML parser |
+| **Highlight.js** | Syntax highlighting for code blocks |
 
-- HTML5
-- CSS3 (Custom styles, no framework)
-- Vanilla JavaScript (ES6+)
-- [Marked.js](https://marked.js.org/) - Markdown parser
-- [Highlight.js](https://highlightjs.org/) - Code syntax highlighting
+### Why No Framework?
 
-## Browser Support
+- ⚡ **Lightning Fast** - No framework overhead, instant load times
+- 📦 **Zero Build Step** - Direct deployment, no compilation needed
+- 🔧 **Easy Maintenance** - Simple codebase, easy to understand and modify
+- 🌐 **Maximum Compatibility** - Works everywhere, including local file systems
 
-- Chrome/Edge (latest)
-- Firefox (latest)
-- Safari (latest)
+## 🌍 Browser Support
 
-## Deployment
+| Browser | Version |
+|---------|---------|
+| Chrome / Edge | Latest (recommended) |
+| Firefox | Latest |
+| Safari | Latest |
+| Mobile Safari (iOS) | iOS 13+ |
+| Chrome Mobile (Android) | Latest |
 
-To deploy online, upload these files:
-1. index.html
-2. styles.css
-3. app.js
-4. docs-data-en.js
-5. docs-data-zh-CN.js
-6. DEXLESS logo Black_White bg.png (logo for light mode)
-7. DEXLESS logo white.png (logo for dark mode)
+## 🚀 Deployment
 
-Recommended free hosting platforms:
-- **GitHub Pages**
-- **Netlify**
-- **Vercel**
+### Automated Deployment (Vercel)
 
-## Customization
+This repository is configured for automatic deployment on Vercel. Every push to `main` triggers a new deployment.
 
-### Changing Colors
+### Manual Deployment
+
+Upload the entire directory to any static hosting service:
+
+#### GitHub Pages
+```bash
+# Enable GitHub Pages in repository settings
+# Select branch: main
+# Select folder: / (root)
+```
+
+#### Netlify
+```bash
+# Drag and drop the folder to Netlify
+# Or connect your GitHub repository for auto-deploy
+```
+
+#### Vercel
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+```
+
+### Required Files for Deployment
+Make sure to include all files in the root directory and the `assets/` folder.
+
+## 🎨 Customization Guide
+
+### Changing Theme Colors
 
 Edit CSS variables in `styles.css`:
 
 ```css
+/* Light mode */
 :root {
-    --primary-color: #2563eb;
+    --primary-color: #2563eb;      /* Main brand color */
+    --secondary-color: #10b981;    /* Accent color */
+    --background: #ffffff;         /* Page background */
+    --surface: #f8fafc;           /* Card background */
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
     --secondary-color: #10b981;
-    /* ... */
+    --background: #0f172a;
+    --surface: #1e293b;
 }
 ```
 
-### Adding New Documentation
+### Adding New API Documentation
 
-1. Add new entry to appropriate `docs-data-*.js` file
-2. Update navigation in `app.js` (generateNavigation method)
-3. Test in both languages (English and 简体中文)
+1. **Edit Documentation Data**
+   - Add new entry to `docs-data-en.js` for English
+   - Add corresponding entry to `docs-data-zh-CN.js` for Chinese
 
-## License
+2. **Update Navigation**
+   - Open `app.js`
+   - Find `generateNavigation()` method
+   - Add new navigation link with appropriate `href="#your-page-id"`
+
+3. **Test Both Languages**
+   - Switch between English and Chinese
+   - Verify content displays correctly
+   - Check search functionality includes new content
+
+### Updating Version (Cache Busting)
+
+When you update files, increment version numbers in `index.html`:
+
+```html
+<link rel="stylesheet" href="styles.css?v=1.2.0">
+<script src="app.js?v=1.2.0"></script>
+<script src="docs-data-en.js?v=1.2.0"></script>
+<script src="docs-data-zh-CN.js?v=1.2.0"></script>
+```
+
+Change `1.2.0` to `1.2.1` (or any new version) to force browsers to reload.
+
+## 📱 Progressive Web App (PWA) Support
+
+The site includes a `site.webmanifest` file for PWA capabilities:
+
+- **Add to Home Screen** on mobile devices
+- **Standalone App Mode** when launched from home screen
+- **Custom Icons** for all platforms (iOS, Android, Desktop)
+
+## 🔧 Troubleshooting
+
+### Search Not Working
+- Clear browser cache (Ctrl+Shift+Del)
+- Verify `app.js` is loaded correctly
+- Check browser console for JavaScript errors
+
+### Favicon Not Showing
+- Hard refresh the page (Ctrl+Shift+R / Cmd+Shift+R)
+- Clear browser cache
+- Wait 5-10 minutes for browser to update icon
+
+### Styles Not Updating
+- Hard refresh (Ctrl+Shift+R)
+- Clear all browser data for the site
+- Increment version number in `index.html` (see Customization Guide)
+
+### Mobile Menu Not Working
+- Ensure JavaScript is enabled
+- Check if screen width is below 1024px
+- Try in different browser
+
+## 📊 Statistics
+
+- **Total API Endpoints**: 24 (13 REST + 11 WebSocket)
+- **Languages**: 2 (English, Simplified Chinese)
+- **Total Lines of Documentation**: ~3,500 lines
+- **Code Examples**: 50+ practical examples
+- **Response Fields Documented**: 100+ fields with descriptions
+
+## 🤝 Contributing
+
+This is a documentation site for DEXLESS API. For API feature requests or bug reports, please contact the DEXLESS technical team.
+
+For documentation improvements:
+1. Update content in `docs-data-en.js` and `docs-data-zh-CN.js`
+2. Test locally
+3. Submit changes
+
+## 📄 License
 
 © 2026 DEXLESS. All rights reserved.
 
-## Support
+## 📞 Support
 
-For questions or suggestions, please contact the DEXLESS technical team.
+For questions, suggestions, or technical support:
+- Visit [DEXLESS Official Website](https://dexless.io)
+- Contact the DEXLESS technical team
+
+---
+
+**Built with** ❤️ **by the DEXLESS Team**
+
+*Last updated: March 2026*
