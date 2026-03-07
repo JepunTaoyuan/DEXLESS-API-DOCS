@@ -840,9 +840,79 @@ Content-Type, orderly-account-id, orderly-key, orderly-signature, orderly-timest
 \`\`\``
   },
 
+
+
+  "rest-get-current-holding": {
+    title: "获取当前持仓",
+    content: `# 获取当前持仓
+
+> **限制: 每秒 10 个请求**
+
+<div class="api-endpoint">
+  <span class="badge badge-get method">GET</span>
+  <span class="path">/v1/client/holding</span>
+</div>
+
+获取用户代币持仓的当前摘要。
+
+> **注意**: 此端点需要 Orderly Key 中的 \`read\` 范围。
+
+## 请求 Headers（认证必需）
+
+| Header | 类型 | 必需 | 描述 |
+|--------|------|------|------|
+| orderly-timestamp | string | 是 | 毫秒时间戳 |
+| orderly-account-id | string | 是 | 账户 ID |
+| orderly-key | string | 是 | Orderly API 密钥 |
+| orderly-signature | string | 是 | Ed25519 签名（Base64 编码） |
+
+## 请求参数（查询字符串）
+
+| 参数 | 类型 | 必填 | 描述 |
+|------|------|------|------|
+| all | boolean | 否 | 如果为 true，将返回所有代币，即使余额为空。默认: false |
+
+## 响应字段
+
+| 字段 | 类型 | 描述 |
+|------|------|------|
+| updated_time | number | Unix 时间戳（毫秒） |
+| token | string | 代币符号（例如 USDC、USDT） |
+| holding | number | 当前持有数量 |
+| frozen | number | 冻结数量（锁定在订单中） |
+| pending_short | number | 待处理空头数量 |
+
+## 响应示例
+
+\`\`\`json
+{
+  "success": true,
+  "data": {
+    "holding": [
+      {
+        "updated_time": 1580794149000,
+        "token": "USDC",
+        "holding": 282485.071904,
+        "frozen": 0,
+        "pending_short": -2000
+      },
+      {
+        "updated_time": 1580794149000,
+        "token": "USDT",
+        "holding": 150000.50,
+        "frozen": 5000,
+        "pending_short": 0
+      }
+    ]
+  }
+}
+\`\`\`
+\`
+  },
+
   "rest-get-leverage-setting": {
     title: "获取杠杆设定",
-    content: `# 获取杠杆设定
+    content: \`# 获取杠杆设定
 
 > **限制: 每秒 1 个请求（每个 IP 地址）**
 

@@ -840,9 +840,79 @@ Get position history.
 \`\`\``
   },
 
+
+
+  "rest-get-current-holding": {
+    title: "Get Current Holding",
+    content: `# Get Current Holding
+
+> **Limit: 10 requests per 1 second**
+
+<div class="api-endpoint">
+  <span class="badge badge-get method">GET</span>
+  <span class="path">/v1/client/holding</span>
+</div>
+
+Get the current summary of user token holdings.
+
+> **Note**: This endpoint requires \`read\` scope in Orderly Key.
+
+## Request Headers (Required for Authentication)
+
+| Header | Type | Required | Description |
+|--------|------|----------|-------------|
+| orderly-timestamp | string | Yes | Millisecond timestamp |
+| orderly-account-id | string | Yes | Account ID |
+| orderly-key | string | Yes | Orderly API Key |
+| orderly-signature | string | Yes | Ed25519 signature (Base64 encoded) |
+
+## Request Parameters (Query String)
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| all | boolean | No | If true, will return all tokens even if balance is empty. Default: false |
+
+## Response Fields
+
+| Field | Type | Description |
+|-------|------|-------------|
+| updated_time | number | Unix epoch time in milliseconds |
+| token | string | Token symbol (e.g., USDC, USDT) |
+| holding | number | Current holding amount |
+| frozen | number | Frozen amount (locked in orders) |
+| pending_short | number | Pending short amount |
+
+## Response Example
+
+\`\`\`json
+{
+  "success": true,
+  "data": {
+    "holding": [
+      {
+        "updated_time": 1580794149000,
+        "token": "USDC",
+        "holding": 282485.071904,
+        "frozen": 0,
+        "pending_short": -2000
+      },
+      {
+        "updated_time": 1580794149000,
+        "token": "USDT",
+        "holding": 150000.50,
+        "frozen": 5000,
+        "pending_short": 0
+      }
+    ]
+  }
+}
+\`\`\`
+\`
+  },
+
   "rest-get-leverage-setting": {
     title: "Get Leverage Setting",
-    content: `# Get Leverage Setting
+    content: \`# Get Leverage Setting
 
 > **Limit: 1 requests per 1 second per IP address**
 
