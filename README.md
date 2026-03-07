@@ -19,13 +19,19 @@ Official API documentation for DEXLESS - A decentralized exchange powered by Ord
 
 ### Method 1: Direct Open (Simplest)
 
-Simply double-click `index.html` to view in your browser.
+Simply open `index.html` in your browser.
 
 ### Method 2: Local Server (Recommended)
 
-1. Double-click `start-server.bat` (Windows)
-2. Or run: `python -m http.server 8000`
-3. Open browser to `http://localhost:8000`
+```bash
+# Python 3
+python -m http.server 8000
+
+# Node.js
+npx serve
+```
+
+Then open browser to `http://localhost:8000`
 
 ## Language Support
 
@@ -39,17 +45,15 @@ Switch languages using the language switcher in the top navigation bar.
 
 ```
 .
-├── index.html                # Main HTML file
-├── styles.css               # CSS styles
-├── app.js                   # Application logic
-├── docs-data-en.js          # English documentation data
-├── docs-data-zh-CN.js       # Simplified Chinese documentation data
-├── orderly version/         # Original documentation from Orderly
-│   ├── REST API/           # REST API endpoints
-│   └── Websocket API/      # WebSocket API topics
-├── README.md               # This file
-├── start-server.bat        # Quick start script (Windows)
-└── 使用說明.txt            # Chinese instructions
+├── index.html                      # Main HTML file
+├── styles.css                      # CSS styles with dark mode support
+├── app.js                          # Application logic and navigation
+├── docs-data-en.js                 # English documentation content
+├── docs-data-zh-CN.js              # Simplified Chinese documentation content
+├── DEXLESS logo Black_White bg.png # Logo for light mode
+├── DEXLESS logo white.png          # Logo for dark mode
+├── vercel.json                     # Vercel deployment config
+└── README.md                       # This file
 ```
 
 ## API Endpoints
@@ -64,17 +68,77 @@ Switch languages using the language switcher in the top navigation bar.
 
 ## Documentation Coverage
 
-### REST API (17 endpoints)
-- Introduction & Authentication
-- Order Management (Create, Cancel, Edit, Batch)
-- Algo Orders (Stop Loss, Take Profit, etc.)
-- Position & Leverage Management
-- Market Info & Funding Rates
+### REST API (11 endpoints)
 
-### WebSocket API (14 topics)
-- Connection & Authentication
-- Public Market Data (Orderbook, Trades, BBO)
-- Private User Data (Account, Balance, Position, Execution Report)
+**Order Management**
+- Create Order - with complete authentication headers and request examples
+- Edit Order - full parameter tables and examples
+- Cancel Order - query string parameters documented
+- Batch Create Order - array structure examples
+
+**Algo Orders**
+- Create Algo Order - STOP, TRAILING_STOP, TP/SL examples
+- Cancel Algo Order - complete headers documentation
+- Edit Algo Order - all parameters explained
+
+**Positions & Leverage**
+- Get All Positions Info - detailed response fields table
+- Get Position History - simplified parameters
+- Get Leverage Setting - symbol-specific query
+- Update Leverage Setting - validation logic included
+
+**Market Information**
+- Get Available Symbols - public endpoint, no auth required
+- Get Predicted Funding Rates (All Markets) - complete response fields
+- Get Predicted Funding Rate (One Market) - path parameter documented
+
+**Authentication & Errors**
+- API Authentication - Ed25519 signature generation guide
+- Error Codes - comprehensive error code table
+
+### WebSocket API (11 topics)
+
+**Public Market Data**
+- Orderbook - depth 100, 1s interval
+- Order Book Update - 200ms updates with prevTs
+- Trade - real-time trade feed
+- BBO (Best Bid Offer) - 10ms updates
+- BBOs (All markets) - 1s updates
+- Request Orderbook - request/response pattern
+
+**Private User Data**
+- Account - with RWA fee rates
+- Balance - 14+ balance fields documented
+- Position Push - camelCase fields, real-time updates
+- Execution Report - symbol filtering support
+
+**Connection & Auth**
+- WebSocket Introduction - complete topics categorization
+- Authentication - URL-based and request-based auth
+- PING/PONG - keep-alive mechanism
+- Error Response - WebSocket error handling
+
+## Key Features for API Integration
+
+✅ **Complete Authentication Documentation**
+- All private endpoints include required authentication headers:
+  - `orderly-timestamp` - Millisecond timestamp
+  - `orderly-account-id` - Account ID
+  - `orderly-key` - API Key
+  - `orderly-signature` - Ed25519 signature
+
+✅ **Practical Request Examples**
+- Real JSON examples that can be copied and used directly
+- Both simple and complex scenarios covered
+
+✅ **Clear Parameter Documentation**
+- Parameter source clearly labeled (Query String / Request Body / Headers)
+- Required vs optional parameters distinguished
+- Type information and descriptions provided
+
+✅ **Complete Response Structures**
+- Detailed response field tables for complex endpoints
+- Example responses for all endpoints
 
 ## Keyboard Shortcuts
 
@@ -134,7 +198,7 @@ Edit CSS variables in `styles.css`:
 
 ## License
 
-© 2024 DEXLESS. All rights reserved.
+© 2026 DEXLESS. All rights reserved.
 
 ## Support
 
