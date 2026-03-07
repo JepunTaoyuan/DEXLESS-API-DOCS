@@ -193,6 +193,11 @@ body {
     font-size: 0.875rem;
     transition: all 0.2s;
     background: var(--surface);
+    color: var(--text-primary);
+}
+
+.search-input::placeholder {
+    color: var(--text-muted);
 }
 
 .search-input:focus {
